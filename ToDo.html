@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To - Do List</title>
+    <link rel="stylesheet" href="ToDo.css">
+  
+</head>
+<body style="text-align: center;">
+    
+    
+    <div class="container">
+        <h1>To Do List</h1>
+    <h3>Single Click To Complete Task And Double Click to Remove Task..!</h3>
+    <h5>Have Good Day..!</h5>
+          <input id="inputField" type="text" placeholder="Write here to add your Task....">
+          <button id="addTo">ADD</button>
+           
+    </div>
+    <div class="to-dos" id="todo">
+            
+    </div>
+    <script>
+        
+        let addToButton = document.getElementById('addTo');
+        let todo = document.getElementById('todo');
+        let inputField = document.getElementById('inputField');
+
+        addToButton.addEventListener('click',function(){
+         var paragraph = document.createElement('p');
+         paragraph.innerText = inputField.value;
+         todo.appendChild(paragraph);
+         inputField.value = "";
+         paragraph.addEventListener('click',function(){
+            paragraph.style.textDecoration = "line-through";
+        })
+        paragraph.addEventListener('dblclick',function(){
+            todo.removeChild(paragraph);})
+
+        })
+    </script>
+</body>
+</html>
